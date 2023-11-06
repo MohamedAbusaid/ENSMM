@@ -73,7 +73,19 @@ public class Chemin {
             Y1 = (int)this.liste_point.get(i).getY();
             fenetre.getGraphics2D().drawLine(X,Y,X1,Y1);
         }
-        
+    }
+        public void afficher_chemin_surIMG(FenetreGraphique fenetre){
+        int X;
+        int Y;
+        int X1;
+        int Y1;
+        for (int i = 1 ; i < this.liste_point.size();i++){
+            X = (int)this.liste_point.get(i-1).getX();
+            Y = (int)this.liste_point.get(i-1).getY();
+            X1 = (int)this.liste_point.get(i).getX();
+            Y1 = (int)this.liste_point.get(i).getY();
+            fenetre.getGraphics2D().drawLine(X,Y,X1,Y1);
+        }
     }
     public Point barycentre(){
         double Xb = this.liste_point.get(0).getX();
@@ -147,7 +159,7 @@ public class Chemin {
         while(amelioration == true ){
             amelioration = false;
             int j;
-            for (int i = 0; i + 2 <this.liste_point.size();i++){
+            for (int i = 0; i + 3 <this.liste_point.size();i++){
                 j = i + 2;
                 Point Pj = this.liste_point.get(j);
                 Point Pj1 = this.liste_point.get(j+1);
@@ -159,5 +171,10 @@ public class Chemin {
                 }
             }
         }
+    }
+    public void interchanger(int i,int j){
+        Point P = this.liste_point.get(i);
+        this.liste_point.remove(P);
+        this.liste_point.add(j,P);
     }
 }

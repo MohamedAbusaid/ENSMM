@@ -69,13 +69,21 @@ public class TestChassis {
             listePoints.get(i).dessiner(fenetre.getGraphics2D());          
         }
         
+        
+        Chemin ch = new Chemin(listePoints);
+//        ch.afficher_chemin();
+        ch.balayage_angulaire();
+//        ch.afficher_chemin();
+        ch.iterative_2op();
+//        ch.afficher_chemin();
+        ch.interchanger(9,16);
+//        ch.afficher_chemin();
+        ch.iterative_2op();
+//        ch.afficher_chemin();
+        ch.interchanger(5,15);
+        ch.afficher_chemin_surIMG(fenetre);
         fenetre.actualiser();
         fenetre.enregistrerImage("soudures.png");
-        Chemin ch = new Chemin(listePoints);
-        ch.afficher_chemin();
-        ch.balayage_angulaire();
-        ch.afficher_chemin();
-        
     }
     
 }
